@@ -28,9 +28,29 @@
 		</form>
 	
 <?php 
+	$supporttypes=array(
+		'image/jpg',
+		'image/jpeg',
+		'image/png',
+		'image/pjpeg',
+		'image/gif',
+		'image/bmp',
+		'image/x-png'
+	);
+?>	
+	
+<?php 		
+		
 			if (isset($_POST['sumit'])){
-				if (getimagesize($_FILES['image']['tmp_name'])== FALSE){
+				$image_name = $_FILES['image']['name'];
+				$image_type = $_FILES['image']['type'];
+				$image_size = $_FILES['image']['size'];
+				$image_tmp_name = $_FILES['image']['tmp_name'];
+		
+		
+				if ($image_name ==''||getimagesize($_FILES['image']['tmp_name'])== FALSE){
 					echo "are you kinding me? Please select an image.";
+					exit;
 				}else{
 					  $image=addslashes($_FILES['image']['tmp_name']);
 					  $name=addslashes($_FILES['image']['name']);
@@ -70,7 +90,7 @@
 ?>
 </body>
 		<br><br><br><br><br><br>
-		<TABLE width=500 height=50 bgColor=#FFFAFA border=8 bordercolor="#8000ff "><TR><TD><MARQUEE><font style=font:40npt =PmingLiu color=red>Welcome to<BR>DataBase Group MiniFacebook Project<BR><BR>Just join in£¡</TD></TR></TBODY></TABLE> </MARQUEE><EMBED src=http://mp3goo.com/download/taylor-swift-styles/  
+		<TABLE width=500 height=50 bgColor=#FFFAFA border=8 bordercolor="#8000ff "><TR><TD><MARQUEE><font style=font:40npt =PmingLiu color=red>Welcome to<BR>DataBase Group MiniFacebook Project<BR><BR>Just join inÂ£Â¡</TD></TR></TBODY></TABLE> </MARQUEE><EMBED src=http://mp3goo.com/download/taylor-swift-styles/  
 			width=0 height=0 type=audio/x-ms-wma autostart="true" loop="true">
 	</body>
 	
